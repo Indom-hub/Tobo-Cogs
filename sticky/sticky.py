@@ -195,7 +195,7 @@ class Sticky(commands.Cog):
         header = settings_dict["header_enabled"]
         if settings_dict["stickied"] is not None:
             content = settings_dict["stickied"]
-            to_send = f"__***Stickied Message***__\n\n{content}" if header else content
+            to_send = f"__***Stickied Message***__\n{content}" if header else content
             new = await channel.send(to_send)
         else:
             advstickied = settings_dict["advstickied"]
@@ -223,5 +223,5 @@ class Sticky(commands.Cog):
             embed = discord.Embed.from_dict(embed)
         if header_enabled:
             header_text = "__***Stickied Message***__"
-            content = f"{header_text}\n\n{content}" if content else header_text
+            content = f"{header_text}\n{content}" if content else header_text
         return await channel.send(content, embed=embed)

@@ -41,7 +41,7 @@ class Sticky(commands.Cog):
         settings = self.conf.channel(channel)
         header_enabled = await settings.header_enabled()
         to_send = (
-            f"__***Stickied Message***__\n\n{content}" if header_enabled else content
+            f"__***Message from Staff:***__\n{content}" if header_enabled else content
         )
         msg = await channel.send(to_send)
 
